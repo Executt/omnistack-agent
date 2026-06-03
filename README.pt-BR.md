@@ -27,7 +27,7 @@ Escolha sua plataforma, copie o conteúdo do arquivo indicado e cole onde a plat
 
 | Plataforma | Arquivo para copiar | Como instalar |
 | --- | --- | --- |
-| **ChatGPT** (Custom GPT) | [`adapters/chatgpt/custom-gpt-instructions.md`](adapters/chatgpt/custom-gpt-instructions.md) | Crie um novo GPT → abra **Configure** → cole o arquivo na caixa **Instructions**. Para uma variante mais enxuta com todo o conhecimento, use [`adapters/chatgpt/system-prompt.md`](adapters/chatgpt/system-prompt.md). |
+| **ChatGPT** (Custom GPT) | [`adapters/chatgpt/custom-gpt-instructions.md`](adapters/chatgpt/custom-gpt-instructions.md) | Crie um novo GPT → abra **Configure** → cole o arquivo na caixa **Instructions** (esta é a variante enxuta). Para o conhecimento completo embutido (maior; ideal como system prompt de API), use [`adapters/chatgpt/system-prompt.md`](adapters/chatgpt/system-prompt.md). |
 | **Claude** (Skill) | [`adapters/claude/SKILL.md`](adapters/claude/SKILL.md) | Coloque o arquivo na pasta de skills do seu projeto (ex.: `.claude/skills/omnistack-agent/SKILL.md`); ele já vem com frontmatter YAML e é invocável pelo usuário. |
 | **Claude** (Agent) | [`adapters/claude/agent.md`](adapters/claude/agent.md) | Registre-o como subagente em `.claude/agents/`; o frontmatter já define nome, descrição e modelo. Para orientação de repositório inteiro, use [`adapters/claude/AGENTS.md`](adapters/claude/AGENTS.md). |
 | **GitHub Copilot** | [`adapters/copilot/copilot-instructions.md`](adapters/copilot/copilot-instructions.md) | Salve como `.github/copilot-instructions.md` na raiz do repositório → recarregue o Copilot. |
