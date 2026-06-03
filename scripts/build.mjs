@@ -3,7 +3,7 @@ import { realpathSync } from 'node:fs';
 import { join, dirname } from 'node:path';
 import { fileURLToPath } from 'node:url';
 import { argv } from 'node:process';
-import { assembleCore, assembleKnowledge, renderTarget, TARGETS } from './lib.mjs';
+import { assembleCore, assembleKnowledge, renderTarget, normalizeEol, TARGETS } from './lib.mjs';
 
 const ROOT = join(dirname(fileURLToPath(import.meta.url)), '..');
 
@@ -11,7 +11,7 @@ async function readCore() {
   const dir = join(ROOT, 'core');
   const names = (await readdir(dir)).filter((n) => n.endsWith('.md')).sort();
   return Promise.all(
-    names.map(async (name) => ({ name, body: await readFile(join(dir, name), 'utf8') })),
+    names.map(async (name) => ({ name, body: normalizeEol(await readFile(join(dir, name), 'utf8')) })),
   );
 }
 
@@ -36,7 +36,7 @@ async function readKnowledge() {
   let indexBody = '';
   const modules = [];
   for (const e of entries) {
-    const body = await readFile(e.abs, 'utf8');
+    const body = normalizeEol(await readFile(e.abs, 'utf8'));
     if (e.rel === 'knowledge/_index.md') indexBody = body;
     else modules.push({ path: e.rel, body });
   }

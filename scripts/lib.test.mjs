@@ -1,8 +1,18 @@
 import { test } from 'node:test';
 import assert from 'node:assert/strict';
 import {
-  contentHash, assembleCore, assembleKnowledge, renderTarget, TARGETS,
+  contentHash, assembleCore, assembleKnowledge, renderTarget, normalizeEol, TARGETS,
 } from './lib.mjs';
+
+test('normalizeEol converts CRLF to LF so hashes are OS-independent', () => {
+  assert.equal(normalizeEol('a\r\nb\r\n'), 'a\nb\n');
+  assert.equal(normalizeEol('a\nb\n'), 'a\nb\n');
+  assert.equal(contentHash(normalizeEol('x\r\ny')), contentHash(normalizeEol('x\ny')));
+});
+
+test('normalizeEol strips a leading UTF-8 BOM', () => {
+  assert.equal(normalizeEol('﻿# Title'), '# Title');
+});
 
 test('contentHash is deterministic and 12 hex chars', () => {
   assert.equal(contentHash('hello'), contentHash('hello'));

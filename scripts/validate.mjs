@@ -2,6 +2,7 @@ import { readFile } from 'node:fs/promises';
 import { join, dirname } from 'node:path';
 import { fileURLToPath } from 'node:url';
 import { buildAll } from './build.mjs';
+import { normalizeEol } from './lib.mjs';
 
 const ROOT = join(dirname(fileURLToPath(import.meta.url)), '..');
 
@@ -12,7 +13,7 @@ async function main() {
     let onDisk = null;
     try { onDisk = await readFile(join(ROOT, r.outPath), 'utf8'); }
     catch { stale.push(`${r.outPath} (missing)`); continue; }
-    if (onDisk !== r.content) stale.push(r.outPath);
+    if (normalizeEol(onDisk) !== normalizeEol(r.content)) stale.push(r.outPath);
   }
   if (stale.length) {
     console.error('✗ Adapters out of sync with core/ + knowledge/:');

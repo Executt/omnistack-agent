@@ -2,6 +2,15 @@ import { createHash } from 'node:crypto';
 
 const SEP = '\n\n---\n\n';
 
+/**
+ * Normalize line endings to LF (and strip a leading UTF-8 BOM).
+ * Source files may be checked out as CRLF on Windows and LF on Linux; without
+ * this, content hashes — and therefore drift detection — would differ per OS.
+ */
+export function normalizeEol(str) {
+  return str.replace(/^﻿/, '').replace(/\r\n/g, '\n');
+}
+
 /** 12-char sha256 hex of a string. */
 export function contentHash(str) {
   return createHash('sha256').update(str, 'utf8').digest('hex').slice(0, 12);
