@@ -37,33 +37,49 @@ The primary focus of this agent — object-oriented design done well.
 - [Design Patterns](oop/design-patterns.md) — a catalog of reusable solutions (GoF and beyond).
 
 ### Languages
-_(coming soon / contribute here)_ — language-specific essentials (C#, JavaScript, HTML/CSS, …).
+Language-specific essentials, OOP-first.
+- [C# Essentials](languages/csharp.md) — types, records, async/await, LINQ, null-safety.
+- [JavaScript Essentials](languages/javascript.md) — modern JS, modules, async, and the footguns.
+- [HTML & CSS Essentials](languages/html-css.md) — semantic HTML, the box model, Flexbox & Grid, a11y.
 
 ### Frontend
-_(coming soon / contribute here)_ — UI frameworks and patterns (React, components, state).
+UI frameworks and patterns.
+- [React](frontend/react.md) — components, props/state, hooks, composition, controlled inputs.
 
 ### Backend
-_(coming soon / contribute here)_ — services and APIs (REST/GraphQL design, validation, auth).
+Services and APIs.
+- [API Design](backend/apis.md) — REST resources, verbs/status, versioning, validation, auth, idempotency.
 
 ### Mobile
-_(coming soon / contribute here)_ — native vs cross-platform (React Native, Flutter, MAUI).
+Native vs cross-platform.
+- [Cross-Platform Mobile](mobile/cross-platform.md) — React Native, Flutter, MAUI; offline, push, SQLite.
 
 ### Databases
-_(coming soon / contribute here)_ — relational, non-relational, and data modeling.
+Relational, non-relational, and data modeling.
+- [Relational Databases](databases/relational.md) — tables, normalization, indexes, transactions, ACID.
+- [Non-Relational Databases (NoSQL)](databases/non-relational.md) — document, key-value, wide-column, CAP.
+- [Data Modeling](databases/modeling.md) — entities, relationships, cardinality, keys, ER diagrams.
 
 ### Architecture
-_(coming soon / contribute here)_ — scalability and architectural patterns.
+Scalability and architectural patterns.
+- [Scalability](architecture/scalability.md) — vertical vs horizontal, statelessness, caching, queues.
+- [Architectural Patterns](architecture/patterns.md) — layered, hexagonal, MVC, monolith vs microservices.
 
 ### DevOps
-_(coming soon / contribute here)_ — CI/CD, infrastructure as code, deployment.
+CI/CD, infrastructure as code, deployment.
+- [CI/CD](devops/ci-cd.md) — pipelines (lint→test→build→deploy), environments, IaC, rollbacks, secrets.
 
 ### Testing
-_(coming soon / contribute here)_ — automated testing and manual QA.
+Automated testing and manual QA.
+- [Automated Testing](testing/automated.md) — the test pyramid, AAA, TDD, mocking, coverage as a signal.
+- [Manual QA](testing/manual-qa.md) — exploratory testing, bug reports, regression checklists, a11y.
 
 ### Security
-_(coming soon / contribute here)_ — secure-by-default practices (OWASP, secrets, least privilege).
+Secure-by-default practices.
+- [Security Best Practices](security/best-practices.md) — OWASP Top 10, validation, secrets, least privilege.
 
 ### Documentation
-_(coming soon / contribute here)_ — technical writing (README, API docs, ADRs, runbooks).
+Technical writing.
+- [Technical Writing](documentation/technical-writing.md) — README, API docs, ADRs, runbooks; reader-first.
 
 <!-- level: beginner -->
