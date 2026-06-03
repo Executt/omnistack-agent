@@ -60,4 +60,5 @@ test('TARGETS covers all six platforms', () => {
   for (const dir of ['claude', 'chatgpt', 'copilot', 'gemini', 'cursor', 'generic']) {
     assert.ok(p.some((x) => x.startsWith(`adapters/${dir}/`)), `missing ${dir}`);
   }
+  assert.equal(TARGETS.length, 9, 'expected exactly 9 adapter targets');
 });

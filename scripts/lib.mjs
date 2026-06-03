@@ -18,7 +18,7 @@ export function assembleCore(coreFiles) {
  */
 export function assembleKnowledge(modules, indexBody, mode) {
   if (mode === 'lean') return indexBody.trim();
-  const ordered = [...modules].sort((a, b) => a.path.localeCompare(b.path));
+  const ordered = [...modules].sort((a, b) => (a.path < b.path ? -1 : a.path > b.path ? 1 : 0));
   return [indexBody.trim(), ...ordered.map((m) => m.body.trim())].join(SEP);
 }
 

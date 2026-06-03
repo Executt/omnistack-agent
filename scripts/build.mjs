@@ -19,7 +19,7 @@ async function walk(dir) {
   const out = [];
   for (const e of await readdir(dir, { withFileTypes: true })) {
     const full = join(dir, e.name);
-    if (e.isDirectory()) out.push(...(await walk(full)));
+    if (e.isDirectory() && !e.isSymbolicLink()) out.push(...(await walk(full)));
     else if (e.name.endsWith('.md')) out.push(full);
   }
   return out;
@@ -27,14 +27,22 @@ async function walk(dir) {
 
 async function readKnowledge() {
   const dir = join(ROOT, 'knowledge');
-  const files = (await walk(dir)).sort();
+  const abs = await walk(dir);
+  const entries = abs.map((f) => ({
+    abs: f,
+    rel: f.slice(ROOT.length + 1).split('\\').join('/'),
+  }));
+  entries.sort((a, b) => (a.rel < b.rel ? -1 : a.rel > b.rel ? 1 : 0));
   let indexBody = '';
   const modules = [];
-  for (const f of files) {
-    const rel = f.slice(ROOT.length + 1).split('\\').join('/');
-    const body = await readFile(f, 'utf8');
-    if (rel === 'knowledge/_index.md') indexBody = body;
-    else modules.push({ path: rel, body });
+  for (const e of entries) {
+    const body = await readFile(e.abs, 'utf8');
+    if (e.rel === 'knowledge/_index.md') indexBody = body;
+    else modules.push({ path: e.rel, body });
+  }
+  // Fail loud: a missing index produces silently broken adapters otherwise.
+  if (!indexBody) {
+    throw new Error('knowledge/_index.md not found — cannot build adapters (run from repo root).');
   }
   return { indexBody, modules };
 }
@@ -61,6 +69,6 @@ async function main() {
 }
 
 // Only run main() when invoked directly (not when imported by validate.mjs).
-if (realpathSync(argv[1]) === fileURLToPath(import.meta.url)) {
+if (argv[1] && realpathSync(argv[1]) === fileURLToPath(import.meta.url)) {
   main().catch((err) => { console.error(err); process.exit(1); });
 }
