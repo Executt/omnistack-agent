@@ -1,0 +1,17 @@
+{
+  "name": "omnistack-agent",
+  "version": "0.1.0",
+  "description": "AI-platform-agnostic, open-source Full Stack Software Engineering Specialist agent.",
+  "type": "module",
+  "license": "MIT",
+  "engines": { "node": ">=18" },
+  "scripts": {
+    "build": "node scripts/build.mjs",
+    "validate": "node scripts/validate.mjs",
+    "test": "node --test"
+  },
+  "keywords": [
+    "ai-agent", "fullstack", "system-prompt", "prompt-engineering",
+    "oop", "software-engineering", "platform-agnostic", "open-source"
+  ]
+}
