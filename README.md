@@ -4,9 +4,9 @@
 
 **[🇧🇷 Ler em Português](README.pt-BR.md)**
 
-## What is this
+## O Que é
 
-**omnistack-agent** is an open-source, platform-agnostic system prompt that turns any capable AI model into a **Full Stack Software Engineering Specialist** — one agent that fluidly takes on whichever engineering role a task needs, with object-oriented design as its default lens. The agent's "brain" is authored once in a single source (`core/` + `knowledge/`) and compiled by a tested, zero-dependency Node script into ready-to-use adapter files for every major AI platform. You don't write prompts — you copy a file.
+**omnistack-agent** O omnistack-agent é um prompt de sistema de código aberto e independente de plataforma que transforma qualquer modelo de IA competente em um Especialista em Engenharia de Software Full Stack — um agente que assume com fluidez qualquer função de engenharia que uma tarefa exija, com o design orientado a objetos como sua lente padrão. O "cérebro" do agente é criado uma única vez em um único código-fonte (core/ + knowledge/) e compilado por um script Node testado e sem dependências em arquivos adaptadores prontos para uso em todas as principais plataformas de IA. Você não escreve prompts — você copia…
 
 It can take on all ten of these roles:
 
@@ -23,7 +23,7 @@ It can take on all ten of these roles:
 
 ## ▶️ How to use
 
-Pick your platform, copy the listed file's contents, and paste it where that platform expects its instructions. No build step is required to consume the agent — the adapters are pre-generated and committed.
+Escolha sua plataforma, copie o conteúdo do arquivo listado e cole-o onde a plataforma espera as instruções. Nenhuma etapa de compilação é necessária para usar o agente — os adaptadores são pré-gerados e incluídos.
 
 | Platform | File to copy | How to install |
 | --- | --- | --- |
